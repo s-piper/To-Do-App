@@ -10,7 +10,7 @@ const pool = require('../modules/pool');
 toDoRouter.post('/', (req, res) => {
     let newTask = req.body;
 
-    let queryText = `INSERT INTO "tasks" ("task", "priority")
+    const queryText = `INSERT INTO "tasks" ("task", "priority")
                      VALUES($1, $2)`;
 
     let values = [newTask.details, newTask.priority];
@@ -25,7 +25,7 @@ toDoRouter.post('/', (req, res) => {
 });
 
 toDoRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
+    const queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
 
     pool.query(queryText)
         .then(result => {
@@ -36,6 +36,22 @@ toDoRouter.get('/', (req, res) => {
              });
 });
 
+
+toDoRouter.delete('/:id', (req, res) => {
+    deleteTask = req.params.id;
+
+    console.log('Task to delete', deleteTask);
+
+    const queryText = 'DELETE FROM "tasks" WHERE "tasks".id = $1;';
+
+    pool.query(queryText, [deleteTask])
+        .then(result => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('delete error', error);
+            res.sendStatus(500);
+        });
+});
 
 
 
