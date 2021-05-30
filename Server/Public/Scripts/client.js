@@ -33,7 +33,7 @@ $( document ).ready( function(){
         data: newTask
       }).then(response => {
         console.log('server says:', response);
-        loadTasks();
+        getTasks();
       }).catch(err =>{
         alert('Not sure how to tell you this:', err);
       })
@@ -55,5 +55,47 @@ $( document ).ready( function(){
   }
 
   function loadTasks(tasks) {
-      
+      $('#highPriority').empty();
+      $('#mediumPriority').empty();
+      $('#lowPriority').empty();
+
+      for (let i = 0;  < tasks.length; ++) {
+          let task = tasks[i];
+
+          if (task.complete === true) {
+            $('#completed').append(`
+            <tr>
+                <td>${task.details}</td>
+                <td>${task.priority}</td>
+                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+            `)
+          }else if (task.priority == 'medium') {
+            $('#mediumPriority').append(`
+            <tr>
+                <td>${task.details}</td>
+                <td>${task.priority}</td>
+                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+            `)
+          }else if (task.priority == 'low') {
+            $('#lowPriority').append(`
+            <tr>
+                <td>${task.details}</td>
+                <td>${task.priority}</td>
+                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+            `)
+          }else if (task.priority == 'high') {
+            $('#highPriority').append(`
+            <tr>
+                <td>${task.details}</td>
+                <td>${task.priority}</td>
+                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+            `)
+          }
+          
+      }
+
+
   }
