@@ -12,56 +12,57 @@
     <script src="Scripts/client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="./vendors/bootstrap.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <h1>ToDo</h1>
-
+    <header class="header">
+        <h1>Do the Needful</h1>
 
     </header>
 
-    <section id="addTask">
-        <h3>Add Task</h3>
-        <input type="text" id="taskIn" placeholder="Details"></input>
-        <label for="priority">Priority:</label>
-        <select name="priority" id="priority">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-        </select>
-        <button type="button" id="addBtn">Add</button>
-    </section>
+    <container>
+        <section id="addTask" class = "forms">
+            <h3>Add Task</h3>
+            <input type="text" id="taskIn" placeholder="Details"></input>
+            <label for="priority">Priority:</label>
+            <select name="priority" id="priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="button" id="addBtn">Add</button>
+        </section>
 
-    <section id="taskList">
-        <h4>Do the Needful</h4>
+        <section id="taskList">
 
-        <table id="taskTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ToDo</th>
-                    <th>Priority</th>
-                    <th>Complete?</th>
-                </tr>
-            </thead>
-            <tbody id="highPriority">
-            </tbody>
-            <tbody id="mediumPriority">
-            </tbody>
-            <tbody id="lowPriority">
-            </tbody> 
-            <thead>
-                <tr>
-                    <th>Completed</th>
-                </tr>
-            </thead>
-                <tbody id="completed">
-                
+            <table id="taskTable" class="table">
+                <thead>
+                    <tr>
+                        <th><h3>ToDo</h3></th>
+                        <th><h3>Priority</h3></th>
+                        <th><h3>Complete?</h3></th>
+                    </tr>
+                </thead>
+                <tbody id="highPriority">
                 </tbody>
-        </table>
+                <tbody id="mediumPriority">
+                </tbody>
+                <tbody id="lowPriority">
+                </tbody>
+                <thead>
+                    <tr>
+                        <th><h3>Completed</h3></th>
+                    </tr>
+                </thead>
+                <tbody id="completed">
 
-    </section>
+                </tbody>
+            </table>
 
+        </section>
+
+    </container>
 
 </body>
 

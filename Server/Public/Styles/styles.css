@@ -1,3 +1,49 @@
-h1 {
-    color: indigo;
+.header {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Archivo Black', sans-serif;
+    margin-top: 5%;
+    
+    
+
+}
+
+body {
+    margin: 1%;
+    background-color: #674b7c;
+    color: #f47362;
+    font-family: 'Judson' serif;
+}
+
+.forms {
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-right: 5%;
+    outline: 3px solid #f47362;
+    outline-offset: 10px;
+}
+
+.table {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    color: #ffffff;
+}
+
+h3 {
+    color: #f47362;
+}
+
+#highPriority {
+    background-color: rgb(255, 0, 0, 0.6);
+}
+
+#mediumPriority {
+    background-color: rgb(255, 69, 0, 0.6);
+}
+
+#lowPriority {
+    background-color: rgb(255, 215, 0, 0.6);
 }
