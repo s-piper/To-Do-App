@@ -15,19 +15,10 @@ body {
     font-family: 'Judson' serif;
 }
 
-.forms {
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    margin-right: 5%;
-    outline: 3px solid #f47362;
-    outline-offset: 10px;
-}
 
 .table {
-    margin-left: 5%;
+    margin-top: 40px;
     margin-right: 5%;
-    margin-top: 5%;
     margin-bottom: 2%;
     color: #ffffff;
 }

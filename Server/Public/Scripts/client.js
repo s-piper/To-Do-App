@@ -66,7 +66,7 @@ $( document ).ready( function(){
       $('#mediumPriority').empty();
       $('#lowPriority').empty();
       $('#completed').empty();
-      $('#forms').val('');
+      $('#taskIn').val('');
 
       for (let i = 0; i < tasks.length; i++) {
           let task = tasks[i];
