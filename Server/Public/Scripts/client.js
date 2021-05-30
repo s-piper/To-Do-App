@@ -5,8 +5,8 @@ console.log('js loaded');
 $( document ).ready( function(){
     console.log( 'jQ loaded' );
 
-    clickListeners()
-  
+    clickListeners();
+
   }); // end jQuery
   
 
@@ -25,6 +25,9 @@ $( document ).ready( function(){
       });
 
       getTasks();
+
+      $('#taskTable').on('click', '.delete', handleDelete);
+
   }
 
 
@@ -70,58 +73,57 @@ $( document ).ready( function(){
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
                 <td>${task.complete}</td>
-                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'medium') {
             $('#mediumPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'low') {
             $('#lowPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'high') {
             $('#highPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${tasks.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${tasks.id}">Delete</button></td>
+                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
             `)
           }
           
       }
 
-      function handleDelete() {
-          console.log('delete click');
-
-          taskId = $(this).data("id");
-
-          deleteTask(taskId);
-      }
-
-      function deleteTask(taskId) {
-          console.log('in deleteTask');
-
-          $.ajax({
-              method: 'DELETE',
-              url: `/todo/${taskId}`
-          }).then( response => {
-              console.log('deleted task', taskId);
-          }).catch( error => {
-              console.log('delete error', error);
-          }); 
-      }
-
-
-
-      
   }
+
+  function handleDelete() {
+    console.log('delete click');
+
+    taskToDelete = $(this).data("id");
+
+    deleteTask(taskToDelete);
+}
+
+function deleteTask(taskId) {
+    console.log('in deleteTask');
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${taskId}`
+    }).then( response => {
+        console.log('deleted task', taskId);
+    }).catch( error => {
+        console.log('delete error', error);
+    }); 
+
+    getTasks();
+}
