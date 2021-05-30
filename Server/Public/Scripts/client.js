@@ -1,4 +1,4 @@
-const { fileURLToPath } = require("url");
+// const { fileURLToPath } = require("url");
 
 console.log('js loaded');
 
@@ -18,7 +18,7 @@ $( document ).ready( function(){
           
           let taskToSend = {
               details: $('#taskIn').val(),
-              priority: $('#priority'),val()
+              priority: $('#priority').val()
           };
 
           sendTask(taskToSend);
@@ -40,6 +40,20 @@ $( document ).ready( function(){
   }
 
 
-  function loadTasks() {
+  function getTasks() {
+    console.log( 'getTasks' );
+    // calls server to get tasks
+    $.ajax({
+      type: 'GET',
+      url: '/todo'
+    }).then (function (response) {
+      console.log('get server says', response);
+      loadTasks(response);
+    }).catch (err => {
+      console.log('get error', err);
+    });
+  }
+
+  function loadTasks(tasks) {
       
   }
