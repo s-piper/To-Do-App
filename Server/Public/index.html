@@ -21,27 +21,28 @@
 
     </header>
 
-    <container>
-        <section id="addTask" class = "forms">
+    
+        <section id="addTask" class = "forms input-group mb-3">
             <h3>Add Task</h3>
-            <input type="text" id="taskIn" placeholder="Details"></input>
-            <label for="priority">Priority:</label>
-            <select name="priority" id="priority">
+            <input type="text" id="taskIn" placeholder="Details" class="input-group mb-3"></input>
+            <label class="input-group-text" for="inputGroupSelect01">Priority</label>
+            <select name="priority" id="priority" class="form-select">
                 <option value="high">High</option>
                 <option value="medium">Medium</option>
                 <option value="low">Low</option>
             </select>
-            <button type="button" id="addBtn">Add</button>
+            <button type="button" id="addBtn" class="btn btn-success">Add</button>
         </section>
 
         <section id="taskList">
 
-            <table id="taskTable" class="table">
+            <table id="taskTable" class="table table table-hover">
                 <thead>
                     <tr>
                         <th><h3>ToDo</h3></th>
                         <th><h3>Priority</h3></th>
                         <th><h3>Complete?</h3></th>
+                        <th><h3>Delete</h3></th>
                     </tr>
                 </thead>
                 <tbody id="highPriority">
@@ -53,16 +54,20 @@
                 <thead>
                     <tr>
                         <th><h3>Completed</h3></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
                     </tr>
                 </thead>
                 <tbody id="completed">
-
                 </tbody>
+                
             </table>
 
         </section>
 
-    </container>
+    
 
 </body>
 
