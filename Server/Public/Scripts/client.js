@@ -27,6 +27,8 @@ $( document ).ready( function(){
       getTasks();
 
       $('#taskTable').on('click', '.delete', handleDelete);
+      $('#taskTable').on('click', '.completed', markComplete);
+
 
   }
 
@@ -63,6 +65,7 @@ $( document ).ready( function(){
       $('#highPriority').empty();
       $('#mediumPriority').empty();
       $('#lowPriority').empty();
+      $('#completed').empty();
 
       for (let i = 0; i < tasks.length; i++) {
           let task = tasks[i];
@@ -72,7 +75,7 @@ $( document ).ready( function(){
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td>${task.complete}</td>
+                <td>Crushed It!</td>
                 <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'medium') {
@@ -127,3 +130,19 @@ function deleteTask(taskId) {
 
     getTasks();
 }
+
+function markComplete(){
+    console.log('complete click');
+    let taskId = $(this).data("id");
+   
+  
+    $.ajax({
+      method:'PUT',
+      url: `/todo/${taskId}`,
+    }).then(response => {
+      console.log('mark complete', taskId);
+      getTasks();
+    }).catch(error =>{
+      alert('Are you sure you did it?', error);
+    })
+  }

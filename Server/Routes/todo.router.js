@@ -53,7 +53,19 @@ toDoRouter.delete('/:id', (req, res) => {
         });
 });
 
+toDoRouter.put('/:id', (req, res) => {
+    completeTask = req.params.id;
 
+    const queryText = 'UPDATE "tasks" SET "complete"=true WHERE "tasks".id = $1;';
+
+    pool.query(queryText, [completeTask])
+        .then(result => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('put error', error);
+            res.sendStatus(500);
+        });
+})
 
 
 
