@@ -66,6 +66,7 @@ $( document ).ready( function(){
       $('#mediumPriority').empty();
       $('#lowPriority').empty();
       $('#completed').empty();
+      $('#forms').val('');
 
       for (let i = 0; i < tasks.length; i++) {
           let task = tasks[i];
@@ -76,31 +77,31 @@ $( document ).ready( function(){
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
                 <td>Crushed It!</td>
-                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
+                <td><button class = "btn btn-danger delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'medium') {
             $('#mediumPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
+                <td><button class = "btn btn-success completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "btn btn-danger delete" data-id ="${task.id}" >Delete</button></td>
             `)
           }else if (task.priority == 'low') {
             $('#lowPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
+                <td><button class = "btn btn-success completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "btn btn-danger delete" data-id ="${task.id}">Delete</button></td>
             `)
           }else if (task.priority == 'high') {
             $('#highPriority').append(`
             <tr>
                 <td>${task.task}</td>
                 <td>${task.priority}</td>
-                <td><button class = "completed" data-id ="${task.id}">Complete?</button></td>
-                <td><button class = "delete" data-id ="${task.id}">Delete</button></td>
+                <td><button class = "btn btn-success completed" data-id ="${task.id}">Complete?</button></td>
+                <td><button class = "btn btn-danger delete" data-id ="${task.id}">Delete</button></td>
             `)
           }
           
