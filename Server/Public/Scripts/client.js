@@ -1,3 +1,5 @@
+const { fileURLToPath } = require("url");
+
 console.log('js loaded');
 
 $( document ).ready( function(){
@@ -35,4 +37,9 @@ $( document ).ready( function(){
       }).catch(err =>{
         alert('Not sure how to tell you this:', err);
       })
+  }
+
+
+  function loadTasks() {
+      
   }
