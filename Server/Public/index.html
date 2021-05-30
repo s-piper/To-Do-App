@@ -24,6 +24,12 @@
     <section id="addTask">
         <h3>Add Task</h3>
         <input type="text" id="taskIn" placeholder="Details"></input>
+        <label for="priority">Priority:</label>
+        <select name="priority" id="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
         <button type="button" id="addBtn">Add</button>
     </section>
 
@@ -34,6 +40,7 @@
             <thead>
                 <tr>
                     <th>ToDo</th>
+                    <th>Priority</th>
                     <th>Complete?</th>
                 </tr>
             </thead>
