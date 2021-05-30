@@ -7,10 +7,10 @@ const toDoRouter = require('./routes/todo.router')
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
-// ROUTES
+// Forwards todo server calls to toDoRouter
 app.use('/todo', toDoRouter)
 
-// Start listening for requests on a specific port
+
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
 });

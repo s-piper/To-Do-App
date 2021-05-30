@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 
 
-
+//POSTs new tasks to database
 toDoRouter.post('/', (req, res) => {
     let newTask = req.body;
 
@@ -24,6 +24,7 @@ toDoRouter.post('/', (req, res) => {
         });
 });
 
+//GETs tasks from database
 toDoRouter.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "tasks" ORDER BY "id";';
 
@@ -36,7 +37,7 @@ toDoRouter.get('/', (req, res) => {
              });
 });
 
-
+//DELETES tasks from database
 toDoRouter.delete('/:id', (req, res) => {
     deleteTask = req.params.id;
 
@@ -53,6 +54,7 @@ toDoRouter.delete('/:id', (req, res) => {
         });
 });
 
+//PUT the update value of complete on database
 toDoRouter.put('/:id', (req, res) => {
     completeTask = req.params.id;
 

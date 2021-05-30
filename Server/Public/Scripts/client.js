@@ -23,7 +23,7 @@ $( document ).ready( function(){
 
           sendTask(taskToSend);
       });
-
+      //triggers GET call
       getTasks();
 
       $('#taskTable').on('click', '.delete', handleDelete);
@@ -32,7 +32,7 @@ $( document ).ready( function(){
 
   }
 
-
+  //Adds sends new task to server
   function sendTask(newTask) {
     $.ajax({
         method:'POST',
@@ -46,10 +46,9 @@ $( document ).ready( function(){
       })
   }
 
-
+  //GETS tasks from server
   function getTasks() {
     console.log( 'getTasks' );
-    // calls server to get tasks
     $.ajax({
       type: 'GET',
       url: '/todo'
@@ -61,6 +60,8 @@ $( document ).ready( function(){
     });
   }
 
+    //Clears DOM and renders tasks based on category
+    //Creates applicable delete and complete buttons
   function loadTasks(tasks) {
       $('#highPriority').empty();
       $('#mediumPriority').empty();
@@ -108,15 +109,16 @@ $( document ).ready( function(){
       }
 
   }
-
-  function handleDelete() {
+  //Handles the delete click, identifies item to delete using id
+  //Could be added to deleteTask function
+    function handleDelete() {
     console.log('delete click');
 
     taskToDelete = $(this).data("id");
 
     deleteTask(taskToDelete);
 }
-
+//Sends DELETE to server
 function deleteTask(taskId) {
     console.log('in deleteTask');
 
@@ -132,6 +134,7 @@ function deleteTask(taskId) {
     getTasks();
 }
 
+//handles complete click and sends to server
 function markComplete(){
     console.log('complete click');
     let taskId = $(this).data("id");
